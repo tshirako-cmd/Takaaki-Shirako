@@ -44,11 +44,18 @@
   .lead .summary{background:var(--bg-soft);flex:1;padding:2.4mm 4mm;font-size:8.6pt;line-height:1.55;
     display:flex;align-items:center;}
   .lead .summary b{color:var(--navy);}
-  .chips{display:flex;gap:2mm;margin-top:2.4mm;}
-  .chip{flex:1;border:.35pt solid var(--line);border-top:.9mm solid var(--gold);padding:1.6mm 2.6mm;}
-  .chip .c-lbl{font-size:6.6pt;color:var(--dgray);letter-spacing:.02em;}
-  .chip .c-val{font-size:10.5pt;font-weight:700;color:var(--navy);margin-top:.3mm;}
-  .chip .c-val small{font-size:7pt;font-weight:500;color:var(--dgray);}
+  /* Persona cards */
+  .personas{display:flex;gap:2mm;margin-top:2.4mm;}
+  .persona{flex:1;border:.35pt solid var(--line);border-top:.9mm solid var(--gold);padding:1.6mm 2.4mm 1.5mm;}
+  .persona .p-who{font-size:8.6pt;font-weight:700;color:var(--navy);line-height:1.25;}
+  .persona .p-who small{font-size:6.6pt;font-weight:500;color:var(--dgray);margin-left:1mm;}
+  .persona .p-row{display:flex;gap:1.6mm;margin-top:1mm;align-items:flex-start;}
+  .persona .p-tag{flex:none;font-size:6.2pt;font-weight:700;letter-spacing:.06em;border-radius:.6mm;
+    padding:.3mm 1.3mm;margin-top:.2mm;}
+  .persona .p-tag.pain{background:#F7ECEC;color:#C00000;}
+  .persona .p-tag.sol{background:var(--navy-soft);color:var(--navy);}
+  .persona .p-txt{font-size:7.2pt;line-height:1.42;color:var(--body);}
+  .persona .p-txt b{color:var(--navy);}
 
   /* 3-layer ribbon */
   .layers{display:flex;gap:2mm;margin-top:3.4mm;}
@@ -68,7 +75,8 @@
   .cat .nm{font-size:9.5pt;font-weight:700;color:var(--navy);line-height:1.2;margin-top:.3mm;}
   .cat .en{font-size:6.4pt;color:var(--dgray);letter-spacing:.03em;margin-top:.4mm;}
   .cat .body{padding:1.8mm 2.4mm 1.6mm;display:flex;flex-direction:column;flex:1;}
-  .cat .q{font-size:7.3pt;color:var(--dgray);line-height:1.45;font-style:italic;
+  .cat .qlbl{font-size:6.1pt;font-weight:700;color:var(--gold);letter-spacing:.08em;margin-bottom:.4mm;}
+  .cat .q{font-size:7.2pt;color:var(--dgray);line-height:1.45;
     border-left:.7mm solid var(--gold);padding-left:1.6mm;margin-bottom:1.6mm;}
   .cat .mlbl{font-size:6.3pt;font-weight:700;color:var(--navy);letter-spacing:.08em;margin-bottom:.6mm;}
   .cat ul{list-style:none;margin-bottom:1.6mm;}
@@ -101,7 +109,7 @@
   <div class="titlebar">
     <div class="title-main">
       <h1>M&amp;A Architect ビジネスマップ <span class="en">／ Business Map</span></h1>
-      <div class="sub">買い手のM&amp;A機能を、設計する<b>独自AIシステム</b>。戦略策定からPMIまで、<b>5カテゴリ・26モジュール</b>が連動して支える全体像。</div>
+      <div class="sub">買い手のM&amp;A機能を、設計する<b>独自AIシステム</b>。<b>誰の・どんな課題を・どう解決するか</b>——想定顧客と利用シーンで見る、戦略策定からPMIまでの全体像。</div>
     </div>
     <div class="brand">
       <div class="dm">DESIGN<span class="g">・</span>MANAGEMENT</div>
@@ -115,16 +123,26 @@
       <div class="val">買い手M&amp;A特化AI</div>
     </div>
     <div class="summary">
-      <p>代表 白子貴章が<b>26年の当事者経験</b>で体系化した判断基準・フレームワーク群をAIに実装。<b>戦略 → ソーシング → 評価 → DD → PMI</b> の全工程で、一次情報の処理と判断材料の構造化を担い、<b>人は最終判断に集中</b>する。中核2機構は<b>特許出願中（2件）</b>。</p>
+      <p>代表 白子貴章が<b>26年の当事者経験</b>で体系化した判断基準をAIに実装（<b>5カテゴリ・26モジュール</b>、中核2機構は<b>特許出願中</b>）。EDINET等の一次情報に直結し、<b>翌営業日</b>で判断材料を構造化（判断系は代表レビュー）。<b>人は最終判断に集中</b>する。</p>
     </div>
   </div>
 
-  <div class="chips">
-    <div class="chip"><div class="c-lbl">カバー範囲</div><div class="c-val">5<small> カテゴリ</small></div></div>
-    <div class="chip"><div class="c-lbl">実装モジュール</div><div class="c-val">26<small> モジュール</small></div></div>
-    <div class="chip"><div class="c-lbl">一次情報 直結</div><div class="c-val">EDINET<small> / Bigdata.com / gBizINFO</small></div></div>
-    <div class="chip"><div class="c-lbl">納品速度</div><div class="c-val">翌営業日<small> ／ 判断系は代表レビュー</small></div></div>
-    <div class="chip"><div class="c-lbl">出力の型</div><div class="c-val">統合Excel<small> ＋ Word / PPTX（DMブランド準拠）</small></div></div>
+  <div class="personas">
+    <div class="persona">
+      <div class="p-who">中堅事業会社の経営企画<small>M&amp;A兼務1〜3名・専任チームなし</small></div>
+      <div class="p-row"><span class="p-tag pain">課題</span><span class="p-txt">仲介からの持ち込みが続くが検討が属人化し、初期評価に1ヶ月。小型案件はFA費用が見合わず検討見送り。</span></div>
+      <div class="p-row"><span class="p-tag sol">解決</span><span class="p-txt"><b>案件評価一式を翌営業日で構造化</b>。兼務でも回る検討体制になり、見送り判断も根拠つきで即答できる。</span></div>
+    </div>
+    <div class="persona">
+      <div class="p-who">初めてM&amp;Aに取り組むオーナー企業・HD<small>中計でM&amp;A成長を掲げた段階</small></div>
+      <div class="p-row"><span class="p-tag pain">課題</span><span class="p-txt">目的・投資枠・ターゲット要件が言語化されておらず、持ち込み案件に個別対応で振り回される。</span></div>
+      <div class="p-row"><span class="p-tag sol">解決</span><span class="p-txt"><b>戦略策定エンジンが事業戦略から目的類型・投資枠・要件を逆算</b>。受け身の検討から能動的なソーシングへ。</span></div>
+    </div>
+    <div class="persona">
+      <div class="p-who">投資会社・事業投資部門<small>PE／CVC／ORIX 事業投資部門</small></div>
+      <div class="p-row"><span class="p-tag pain">課題</span><span class="p-txt">パイプラインは多いが、初期スクリーニングと投資後のKPIモニタリングに人手を取られ、深い検討に時間を割けない。</span></div>
+      <div class="p-row"><span class="p-tag sol">解決</span><span class="p-txt"><b>11評価モジュール並列で一次評価を量産</b>し、PMI KPI監視で投資後管理を標準化。人は交渉・判断に集中。</span></div>
+    </div>
   </div>
 
   <div class="layers">
@@ -142,7 +160,8 @@
         <div class="en">事業戦略からM&amp;A戦略を導出・投資枠を逆算</div>
       </div>
       <div class="body">
-        <div class="q">M&amp;Aは合理的か／どの目的類型か／投資枠はどの規模か／ターゲット要件は</div>
+        <div class="qlbl">利用シーン</div>
+        <div class="q">中計にM&amp;Aを掲げたが、目的・投資枠・ターゲット要件が言語化できていない</div>
         <div class="mlbl">主なモジュール</div>
         <ul>
           <li>戦略策定エンジン（3分岐×6ステップ）</li>
@@ -162,7 +181,8 @@
         <div class="en">候補を網羅発掘しスコアで絞り込む</div>
       </div>
       <div class="body">
-        <div class="q">要件に合う候補はどこか／重複なく名寄せできるか／どれを優先するか</div>
+        <div class="qlbl">利用シーン</div>
+        <div class="q">候補が仲介持ち込み頼み。要件に合う相手を能動的に探せていない</div>
         <div class="mlbl">主なモジュール</div>
         <ul>
           <li>ロングリスト発掘（Web×gBizINFO）</li>
@@ -182,7 +202,8 @@
         <div class="en">多面評価で投資判断材料を構造化</div>
       </div>
       <div class="body">
-        <div class="q">検討に値するか／適正な企業価値は／買い手タイプ別にGo・No-Goは</div>
+        <div class="qlbl">利用シーン</div>
+        <div class="q">IMが持ち込まれ、短期間で一次回答が必要。だが専任チームがいない</div>
         <div class="mlbl">主なモジュール</div>
         <ul>
           <li>ディール評価オーケストレーター（4ステップ）</li>
@@ -202,7 +223,8 @@
         <div class="en">DD設計〜SPA条件〜クロージング管理</div>
       </div>
       <div class="body">
-        <div class="q">DDスコープは／横断論点とリスクは／SPA条件・交渉ポジションは</div>
+        <div class="qlbl">利用シーン</div>
+        <div class="q">DD報告書が分厚く、横断論点とSPA交渉材料を整理しきれない</div>
         <div class="mlbl">主なモジュール（3層）</div>
         <ul>
           <li>DD準備（スコープ／QA・資料依頼シート）</li>
@@ -222,7 +244,8 @@
         <div class="en">買収後の統合を体系的に支援</div>
       </div>
       <div class="body">
-        <div class="q">ガバナンス層は／月次KPIは何を／100日プランの優先順位は</div>
+        <div class="qlbl">利用シーン</div>
+        <div class="q">買収後のKPI管理・100日プランが属人化し、統合が計画倒れに</div>
         <div class="mlbl">主なモジュール</div>
         <ul>
           <li>ガバナンス層定義</li>
