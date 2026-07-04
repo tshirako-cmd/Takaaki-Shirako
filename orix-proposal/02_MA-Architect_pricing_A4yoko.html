@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>M&A Architect サービス料金体系 ｜ ORIX提案</title>
+<style>
+  :root{
+    --navy:#1F3864; --gold:#D4A017; --dgray:#44546A; --body:#333;
+    --line:#D9DEE8; --bg-soft:#F5F7FA; --navy-soft:#EEF1F7;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{background:#E8EAED;}
+  body{
+    font-family:"Inter","Yu Gothic","YuGothic","游ゴシック",sans-serif;
+    color:var(--body);-webkit-print-color-adjust:exact;print-color-adjust:exact;
+  }
+  @page{size:A4 landscape;margin:0;}
+  .page{
+    width:297mm;height:210mm;margin:10mm auto;padding:9mm 11mm 7mm;
+    background:#fff;display:flex;flex-direction:column;
+    box-shadow:0 2px 12px rgba(0,0,0,.18);
+  }
+  @media print{ html,body{background:#fff;} .page{margin:0;box-shadow:none;} }
+
+  /* Header */
+  .conf{text-align:right;font-size:7pt;font-weight:700;color:#C00000;letter-spacing:.08em;}
+  .titlebar{display:flex;justify-content:space-between;align-items:flex-end;
+    border-bottom:2.5pt solid var(--navy);padding-bottom:2mm;margin-top:.6mm;}
+  .title-main h1{font-size:16pt;color:var(--navy);font-weight:700;line-height:1.2;}
+  .title-main h1 .en{font-size:10.5pt;color:var(--dgray);font-weight:600;letter-spacing:.02em;}
+  .title-main .sub{font-size:8pt;color:var(--dgray);margin-top:1.2mm;}
+  .title-main .sub b{color:var(--body);}
+  .brand{text-align:right;font-size:7pt;color:var(--dgray);line-height:1.5;white-space:nowrap;}
+  .brand .dm{font-size:9pt;font-weight:700;color:var(--navy);letter-spacing:.14em;}
+  .brand .dm .g{color:var(--gold);}
+
+  /* Concept band */
+  .lead{display:flex;align-items:stretch;margin-top:3mm;border-radius:1.2mm;overflow:hidden;}
+  .lead .badge{background:var(--navy);color:#fff;display:flex;flex-direction:column;justify-content:center;
+    padding:2.4mm 4mm;border-right:1.2mm solid var(--gold);min-width:52mm;}
+  .lead .badge .lbl{font-size:6.5pt;letter-spacing:.18em;opacity:.75;}
+  .lead .badge .val{font-size:12.5pt;font-weight:700;margin-top:.6mm;white-space:nowrap;}
+  .lead .summary{background:var(--bg-soft);flex:1;padding:2.4mm 4mm;font-size:8.6pt;line-height:1.55;
+    display:flex;align-items:center;}
+  .lead .summary b{color:var(--navy);}
+
+  h2{font-size:9.5pt;color:var(--navy);margin:3.2mm 0 1.6mm;padding-left:2.2mm;
+    border-left:1.2mm solid var(--gold);}
+
+  .cols{display:flex;gap:5mm;flex:1;}
+  .col-l{flex:1.15;display:flex;flex-direction:column;}
+  .col-r{flex:1;display:flex;flex-direction:column;}
+
+  /* Plan table */
+  table{width:100%;border-collapse:collapse;font-size:8pt;}
+  thead th{background:var(--navy);color:#fff;font-weight:600;font-size:7.2pt;
+    padding:1.5mm 2mm;text-align:left;letter-spacing:.03em;white-space:nowrap;}
+  tbody td{padding:1.7mm 2mm;border-bottom:.35pt solid var(--line);vertical-align:middle;line-height:1.4;}
+  tbody tr:nth-child(even) td{background:#FAFBFD;}
+  .plan-nm{font-weight:700;color:var(--navy);white-space:nowrap;}
+  .plan-nm small{display:block;font-weight:500;color:var(--dgray);font-size:6.6pt;}
+  td.c{text-align:center;white-space:nowrap;}
+  td.price{text-align:right;font-weight:700;color:var(--navy);white-space:nowrap;font-size:9pt;}
+  td.price small{font-weight:500;color:var(--dgray);font-size:6.6pt;}
+  .row-partner td{background:var(--navy-soft)!important;}
+  .badge-pt{display:inline-block;background:var(--gold);color:#fff;font-weight:700;
+    border-radius:2mm;padding:.2mm 1.6mm;font-size:7.5pt;}
+
+  .axis-note{display:flex;gap:2mm;margin-top:2mm;}
+  .axis{flex:1;border:.35pt solid var(--line);border-top:.9mm solid var(--gold);padding:1.6mm 2.4mm;}
+  .axis .a-lbl{font-size:6.5pt;font-weight:700;color:var(--gold);letter-spacing:.08em;}
+  .axis .a-txt{font-size:7.4pt;line-height:1.42;margin-top:.5mm;}
+  .axis .a-txt b{color:var(--navy);}
+
+  /* Mechanics cards */
+  .mech{display:flex;gap:2mm;margin-top:2mm;}
+  .mcard{flex:1;border:.35pt solid var(--line);padding:1.7mm 2.4mm;}
+  .mcard .m-lbl{font-size:6.5pt;font-weight:700;color:var(--navy);letter-spacing:.06em;margin-bottom:.7mm;}
+  .mcard .m-txt{font-size:7.2pt;line-height:1.44;color:var(--body);}
+  .mcard .m-txt b{color:var(--navy);}
+  .tier{display:flex;flex-direction:column;gap:.6mm;}
+  .tier .t{font-size:7.2pt;line-height:1.3;}
+  .tier .t b{display:inline-block;min-width:9mm;color:var(--gold);font-weight:700;}
+
+  /* Skill table (right) */
+  .skill table{font-size:7.2pt;}
+  .skill thead th{padding:1.3mm 1.8mm;font-size:6.8pt;}
+  .skill tbody td{padding:1.15mm 1.8mm;line-height:1.3;}
+  .skill td.ph{font-weight:700;color:var(--navy);white-space:nowrap;vertical-align:middle;
+    background:var(--navy-soft)!important;font-size:6.9pt;border-right:.35pt solid var(--line);}
+  .skill td.pt{text-align:center;font-weight:700;color:var(--navy);white-space:nowrap;width:9mm;}
+  .skill td.co{text-align:center;white-space:nowrap;font-size:6.6pt;width:16mm;}
+  .skill .rev{color:#C00000;font-weight:700;}
+  .skill .both{color:var(--dgray);}
+  .skill .ptn{font-size:6.2pt;color:var(--dgray);font-weight:500;}
+
+  .note{font-size:6.6pt;color:var(--dgray);line-height:1.45;border-top:.35pt solid var(--line);
+    padding-top:1.4mm;margin-top:2mm;}
+  .footer{display:flex;justify-content:space-between;font-size:7pt;color:var(--dgray);
+    margin-top:1.2mm;padding-top:1.4mm;border-top:1.2pt solid var(--navy);}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="conf">Strictly Confidential</div>
+  <div class="titlebar">
+    <div class="title-main">
+      <h1>M&amp;A Architect サービス料金体系 <span class="en">／ Service Pricing</span></h1>
+      <div class="sub">全プラン共通の売り＝<b>「早くて、質が良い」</b>（翌営業日の速さ＋<b>判断系は必ず代表レビュー</b>）。差別化は<b>範囲</b>と<b>案件数</b>。<span style="color:var(--dgray)">（v3 / 2026-07-04）</span></div>
+    </div>
+    <div class="brand">
+      <div class="dm">DESIGN<span class="g">・</span>MANAGEMENT</div>
+      <div>ORIX 事業投資部門 ご提案</div>
+    </div>
+  </div>
+
+  <div class="lead">
+    <div class="badge">
+      <div class="lbl">PRICING MODEL</div>
+      <div class="val">月額 ＋ ポイント制</div>
+    </div>
+    <div class="summary">
+      <p><b>2コース（範囲）× 2プラン（同時案件数）＝ 4プラン</b>。月額に応じて毎月ポイントを付与し、スキル起動ごとに消化。<b>専任チーム相当を、解約できる変動費で</b>。入口は<b>3ヶ月パイロット（▲40%）</b>、最低継続6ヶ月（縛りはダウングレード/解約のみ、アップグレードは随時・日割り可）。</p>
+    </div>
+  </div>
+
+  <div class="cols">
+
+    <!-- LEFT -->
+    <div class="col-l">
+      <h2>プラン ｜ 2コース × 2プラン = 4プラン</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>プラン</th><th>コース（範囲）</th><th style="text-align:center">同時案件数</th>
+            <th style="text-align:center">付与pt/月</th><th style="text-align:right">月額（税別）</th><th style="text-align:center">最低継続</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="plan-nm">ディレクター・ライト</td>
+            <td>評価まで</td><td class="c">1案件</td>
+            <td class="c"><span class="badge-pt">55</span></td>
+            <td class="price">50<small> 万円</small></td><td class="c">6ヶ月</td>
+          </tr>
+          <tr>
+            <td class="plan-nm">ディレクター・スタンダード</td>
+            <td>評価まで</td><td class="c">最大3案件</td>
+            <td class="c"><span class="badge-pt">110</span></td>
+            <td class="price">90<small> 万円</small></td><td class="c">6ヶ月</td>
+          </tr>
+          <tr class="row-partner">
+            <td class="plan-nm">パートナー・ライト<small>DD以降の実行まで</small></td>
+            <td>実行まで（DD以降）</td><td class="c">1案件</td>
+            <td class="c"><span class="badge-pt">100</span></td>
+            <td class="price">110<small> 万円</small></td><td class="c">6ヶ月</td>
+          </tr>
+          <tr class="row-partner">
+            <td class="plan-nm">パートナー・スタンダード<small>DD以降の実行まで</small></td>
+            <td>実行まで（DD以降）</td><td class="c">最大3案件</td>
+            <td class="c"><span class="badge-pt">200</span></td>
+            <td class="price">200<small> 万円</small></td><td class="c">6ヶ月</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="axis-note">
+        <div class="axis">
+          <div class="a-lbl">軸1 ｜ コース＝範囲</div>
+          <div class="a-txt"><b>評価まで（ディレクター）</b>／<b>DD以降の実行まで（パートナー）</b>。DD・IC・PMI・戦略策定はパートナーコース限定。</div>
+        </div>
+        <div class="axis">
+          <div class="a-lbl">軸2 ｜ プラン＝同時案件数</div>
+          <div class="a-txt"><b>ライト＝1案件</b>／<b>スタンダード＝最大3案件</b>（同時並行）。速さ・質は全プラン共通の土台。</div>
+        </div>
+      </div>
+
+      <h2>ポイント消化の仕組み</h2>
+      <div class="mech">
+        <div class="mcard">
+          <div class="m-lbl">消化pt ＝ 委任Tier連動（1起動で消化）</div>
+          <div class="tier">
+            <div class="t"><b>1 pt</b>完全委任（AIにすべて任せる）</div>
+            <div class="t"><b>2 pt</b>ドラフト委任・代行可</div>
+            <div class="t"><b>5 pt</b>対話・独立セッション実施</div>
+            <div class="t"><b>7 pt</b>相談（1時間あたり）</div>
+          </div>
+        </div>
+        <div class="mcard">
+          <div class="m-lbl">品質保証・運用ルール</div>
+          <div class="m-txt">
+            <b>判断系</b>＝代表がレビュー（品質責任は代表）、<b>分析系</b>＝AI生成・レビュー任意（バリュエーションは推奨）。<br>
+            ゲートは<b>ハード</b>（コース外スキル不可）。繰越なし（月次リセット）。付与ptは上限であり消費保証ではない。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="col-r skill">
+      <h2>スキル別 消化pt・利用可能コース（全25スキル）</h2>
+      <table>
+        <thead>
+          <tr><th>フェーズ</th><th>スキル</th><th style="text-align:center">消化pt</th><th style="text-align:center">コース</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="ph" rowspan="2">戦略策定</td><td>戦略策定エンジン <span class="rev">◆判断</span></td><td class="pt">5</td><td class="co">パートナー</td></tr>
+          <tr><td>挑戦的問い</td><td class="pt">1</td><td class="co both">両コース</td></tr>
+
+          <tr><td class="ph" rowspan="4">ソーシング</td><td>ロングリスト</td><td class="pt">1</td><td class="co both">両コース</td></tr>
+          <tr><td>ショートリスト</td><td class="pt">1</td><td class="co both">両コース</td></tr>
+          <tr><td>売却可能性調査</td><td class="pt">1</td><td class="co both">両コース</td></tr>
+          <tr><td>初期アプローチ提案 <span class="rev">◆判断</span></td><td class="pt">2</td><td class="co both">両コース</td></tr>
+
+          <tr><td class="ph" rowspan="11">案件評価</td><td>案件評価・総合 <span class="rev">◆判断</span></td><td class="pt">5</td><td class="co both">両コース</td></tr>
+          <tr><td>バリュエーション <span class="ptn">（推奨）</span></td><td class="pt">2</td><td class="co both">両コース</td></tr>
+          <tr><td>4シナリオProjection</td><td class="pt">2</td><td class="co both">両コース</td></tr>
+          <tr><td>Pro Forma</td><td class="pt">2</td><td class="co both">両コース</td></tr>
+          <tr><td>財務分析</td><td class="pt">1</td><td class="co both">両コース</td></tr>
+          <tr><td>シナジー分析</td><td class="pt">1</td><td class="co both">両コース</td></tr>
+          <tr><td>市場分析</td><td class="pt">1</td><td class="co both">両コース</td></tr>
+          <tr><td>ビジネスモデル／マップ</td><td class="pt">1</td><td class="co both">両コース</td></tr>
+          <tr><td>競合分析</td><td class="pt">1</td><td class="co both">両コース</td></tr>
+          <tr><td>経営陣評価</td><td class="pt">1</td><td class="co both">両コース</td></tr>
+          <tr><td>リスク評価</td><td class="pt">1</td><td class="co both">両コース</td></tr>
+
+          <tr><td class="ph">論点討議</td><td>論点討議 α／本編 <span class="rev">◆判断</span></td><td class="pt">1</td><td class="co both">両コース</td></tr>
+
+          <tr><td class="ph" rowspan="4">DD・交渉<br>・意思決定</td><td>DD計画 <span class="rev">◆判断</span></td><td class="pt">2</td><td class="co">パートナー</td></tr>
+          <tr><td>DD分析・統合 <span class="rev">◆判断</span></td><td class="pt">5</td><td class="co">パートナー</td></tr>
+          <tr><td>SPA交渉支援 <span class="rev">◆判断</span></td><td class="pt">2</td><td class="co">パートナー</td></tr>
+          <tr><td>IC・契約起案 <span class="rev">◆判断</span></td><td class="pt">5</td><td class="co">パートナー</td></tr>
+
+          <tr><td class="ph">PMI</td><td>PMI・100日・買収後経営 <span class="rev">◆判断</span></td><td class="pt">5</td><td class="co">パートナー</td></tr>
+
+          <tr><td class="ph">相談</td><td>相談（1時間あたり）</td><td class="pt">7</td><td class="co both">両コース</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <div class="note">
+    ※ <span class="rev">◆判断</span>＝代表レビュー必須（差別化の核）。無印＝分析（AI生成・レビュー任意）。消化pt＝委任Tier（完全委任1／ドラフト委任2／対話・独立セッション5）連動、格付け（max/mid/min）は成果物の重み。「評価まで」のスキルは両コース、DD以降＋戦略策定はパートナーコース限定。追加購入は割高（枠内消費・上位プランへ誘導）。非課金：内部利用・凍結・別運用・個人運用・コンサル専用。フィーは投資1件（エクイティ数十億）の1%未満＝“保険”と“コールオプション”を同時に買う非対称性。金額は目安・最終条件は個別提案。
+  </div>
+  <div class="footer">
+    <div>出典：料金体系_v3_20260704.xlsx（プラン別／スキル別／前提・改定履歴）</div>
+    <div>© 2026 Design Management LLC　　2 / 2</div>
+  </div>
+
+</div>
+</body>
+</html>

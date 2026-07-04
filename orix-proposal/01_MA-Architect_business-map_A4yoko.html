@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>M&A Architect ビジネスマップ ｜ ORIX提案</title>
+<style>
+  :root{
+    --navy:#1F3864; --gold:#D4A017; --dgray:#44546A; --body:#333;
+    --line:#D9DEE8; --bg-soft:#F5F7FA; --navy-soft:#EEF1F7;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{background:#E8EAED;}
+  body{
+    font-family:"Inter","Yu Gothic","YuGothic","游ゴシック",sans-serif;
+    color:var(--body);-webkit-print-color-adjust:exact;print-color-adjust:exact;
+  }
+  @page{size:A4 landscape;margin:0;}
+  .page{
+    width:297mm;height:210mm;margin:10mm auto;padding:9mm 11mm 7mm;
+    background:#fff;display:flex;flex-direction:column;
+    box-shadow:0 2px 12px rgba(0,0,0,.18);
+  }
+  @media print{ html,body{background:#fff;} .page{margin:0;box-shadow:none;} }
+
+  /* Header */
+  .conf{text-align:right;font-size:7pt;font-weight:700;color:#C00000;letter-spacing:.08em;}
+  .titlebar{display:flex;justify-content:space-between;align-items:flex-end;
+    border-bottom:2.5pt solid var(--navy);padding-bottom:2mm;margin-top:.6mm;}
+  .title-main h1{font-size:16pt;color:var(--navy);font-weight:700;line-height:1.2;}
+  .title-main h1 .en{font-size:10.5pt;color:var(--dgray);font-weight:600;letter-spacing:.02em;}
+  .title-main .sub{font-size:8pt;color:var(--dgray);margin-top:1.2mm;}
+  .title-main .sub b{color:var(--body);}
+  .brand{text-align:right;font-size:7pt;color:var(--dgray);line-height:1.5;white-space:nowrap;}
+  .brand .dm{font-size:9pt;font-weight:700;color:var(--navy);letter-spacing:.14em;}
+  .brand .dm .g{color:var(--gold);}
+
+  /* Lead band */
+  .lead{display:flex;align-items:stretch;margin-top:3mm;border-radius:1.2mm;overflow:hidden;}
+  .lead .badge{background:var(--navy);color:#fff;display:flex;flex-direction:column;justify-content:center;
+    padding:2.4mm 4mm;border-right:1.2mm solid var(--gold);min-width:52mm;}
+  .lead .badge .lbl{font-size:6.5pt;letter-spacing:.18em;opacity:.75;}
+  .lead .badge .val{font-size:13pt;font-weight:700;margin-top:.6mm;white-space:nowrap;}
+  .lead .badge .val small{font-size:7.5pt;font-weight:500;opacity:.85;}
+  .lead .summary{background:var(--bg-soft);flex:1;padding:2.4mm 4mm;font-size:8.6pt;line-height:1.55;
+    display:flex;align-items:center;}
+  .lead .summary b{color:var(--navy);}
+  .chips{display:flex;gap:2mm;margin-top:2.4mm;}
+  .chip{flex:1;border:.35pt solid var(--line);border-top:.9mm solid var(--gold);padding:1.6mm 2.6mm;}
+  .chip .c-lbl{font-size:6.6pt;color:var(--dgray);letter-spacing:.02em;}
+  .chip .c-val{font-size:10.5pt;font-weight:700;color:var(--navy);margin-top:.3mm;}
+  .chip .c-val small{font-size:7pt;font-weight:500;color:var(--dgray);}
+
+  /* 3-layer ribbon */
+  .layers{display:flex;gap:2mm;margin-top:3.4mm;}
+  .layer{color:#fff;padding:1.2mm 3mm;border-radius:.8mm;display:flex;align-items:baseline;gap:2mm;
+    white-space:nowrap;overflow:hidden;}
+  .layer .ly-jp{font-size:9pt;font-weight:700;white-space:nowrap;}
+  .layer .ly-en{font-size:6.6pt;letter-spacing:.06em;opacity:.85;overflow:hidden;text-overflow:ellipsis;}
+  .layer.l1{flex:2;background:var(--navy);}
+  .layer.l2{flex:2;background:#2E4A78;}
+  .layer.l3{flex:1.15;background:#3B5A8C;}
+
+  /* 5 categories */
+  .cats{display:flex;gap:2mm;margin-top:2mm;flex:1;}
+  .cat{flex:1;border:.35pt solid var(--line);display:flex;flex-direction:column;min-width:0;}
+  .cat .head{background:var(--navy-soft);border-top:.9mm solid var(--navy);padding:1.8mm 2.4mm 1.6mm;}
+  .cat .num{font-size:7pt;font-weight:700;color:var(--gold);letter-spacing:.1em;}
+  .cat .nm{font-size:9.5pt;font-weight:700;color:var(--navy);line-height:1.2;margin-top:.3mm;}
+  .cat .en{font-size:6.4pt;color:var(--dgray);letter-spacing:.03em;margin-top:.4mm;}
+  .cat .body{padding:1.8mm 2.4mm 1.6mm;display:flex;flex-direction:column;flex:1;}
+  .cat .q{font-size:7.3pt;color:var(--dgray);line-height:1.45;font-style:italic;
+    border-left:.7mm solid var(--gold);padding-left:1.6mm;margin-bottom:1.6mm;}
+  .cat .mlbl{font-size:6.3pt;font-weight:700;color:var(--navy);letter-spacing:.08em;margin-bottom:.6mm;}
+  .cat ul{list-style:none;margin-bottom:1.6mm;}
+  .cat ul li{font-size:7.4pt;line-height:1.4;padding-left:2.4mm;position:relative;margin-bottom:.3mm;}
+  .cat ul li::before{content:"";position:absolute;left:0;top:1.5mm;width:1.1mm;height:1.1mm;
+    background:var(--navy);border-radius:50%;}
+  .cat .out{margin-top:auto;background:var(--bg-soft);padding:1.4mm 1.8mm;font-size:6.6pt;
+    color:var(--dgray);line-height:1.42;}
+  .cat .out b{color:var(--navy);}
+  .flow-arrow{align-self:center;color:var(--gold);font-size:11pt;font-weight:700;margin:0 -.4mm;}
+
+  /* Bottom strip */
+  .strip{display:flex;gap:2mm;margin-top:2.4mm;}
+  .box{flex:1;border:.35pt solid var(--line);padding:1.8mm 2.6mm;}
+  .box .b-lbl{font-size:6.4pt;font-weight:700;color:var(--gold);letter-spacing:.1em;margin-bottom:.7mm;}
+  .box .b-txt{font-size:7.3pt;line-height:1.45;color:var(--body);}
+  .box .b-txt b{color:var(--navy);}
+  .box.wide{flex:1.5;}
+
+  .note{font-size:6.6pt;color:var(--dgray);line-height:1.45;border-top:.35pt solid var(--line);
+    padding-top:1.4mm;margin-top:2.2mm;}
+  .footer{display:flex;justify-content:space-between;font-size:7pt;color:var(--dgray);
+    margin-top:1.4mm;padding-top:1.4mm;border-top:1.2pt solid var(--navy);}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="conf">Strictly Confidential</div>
+  <div class="titlebar">
+    <div class="title-main">
+      <h1>M&amp;A Architect ビジネスマップ <span class="en">／ Business Map</span></h1>
+      <div class="sub">買い手のM&amp;A機能を、設計する<b>独自AIシステム</b>。戦略策定からPMIまで、<b>5カテゴリ・26モジュール</b>が連動して支える全体像。</div>
+    </div>
+    <div class="brand">
+      <div class="dm">DESIGN<span class="g">・</span>MANAGEMENT</div>
+      <div>ORIX 事業投資部門 ご提案</div>
+    </div>
+  </div>
+
+  <div class="lead">
+    <div class="badge">
+      <div class="lbl">WHAT IT IS</div>
+      <div class="val">買い手M&amp;A特化AI</div>
+    </div>
+    <div class="summary">
+      <p>代表 白子貴章が<b>26年の当事者経験</b>で体系化した判断基準・フレームワーク群をAIに実装。<b>戦略 → ソーシング → 評価 → DD → PMI</b> の全工程で、一次情報の処理と判断材料の構造化を担い、<b>人は最終判断に集中</b>する。中核2機構は<b>特許出願中（2件）</b>。</p>
+    </div>
+  </div>
+
+  <div class="chips">
+    <div class="chip"><div class="c-lbl">カバー範囲</div><div class="c-val">5<small> カテゴリ</small></div></div>
+    <div class="chip"><div class="c-lbl">実装モジュール</div><div class="c-val">26<small> モジュール</small></div></div>
+    <div class="chip"><div class="c-lbl">一次情報 直結</div><div class="c-val">EDINET<small> / Bigdata.com / gBizINFO</small></div></div>
+    <div class="chip"><div class="c-lbl">納品速度</div><div class="c-val">翌営業日<small> ／ 判断系は代表レビュー</small></div></div>
+    <div class="chip"><div class="c-lbl">出力の型</div><div class="c-val">統合Excel<small> ＋ Word / PPTX（DMブランド準拠）</small></div></div>
+  </div>
+
+  <div class="layers">
+    <div class="layer l1"><span class="ly-jp">設計する</span><span class="ly-en">VISION &amp; DESIGN ｜ 戦略を生み、要件・体制を逆算</span></div>
+    <div class="layer l2"><span class="ly-jp">見極める</span><span class="ly-en">DISCERNING ｜ 案件と条件を見極める</span></div>
+    <div class="layer l3"><span class="ly-jp">経営する</span><span class="ly-en">MANAGEMENT ｜ 買収後を経営</span></div>
+  </div>
+
+  <div class="cats">
+
+    <div class="cat">
+      <div class="head">
+        <div class="num">① STRATEGY</div>
+        <div class="nm">戦略策定</div>
+        <div class="en">事業戦略からM&amp;A戦略を導出・投資枠を逆算</div>
+      </div>
+      <div class="body">
+        <div class="q">M&amp;Aは合理的か／どの目的類型か／投資枠はどの規模か／ターゲット要件は</div>
+        <div class="mlbl">主なモジュール</div>
+        <ul>
+          <li>戦略策定エンジン（3分岐×6ステップ）</li>
+          <li>Series 5 投資枠算定</li>
+          <li>EDINETスクリーニング／戦略フィットスコア</li>
+        </ul>
+        <div class="out"><b>出力</b>｜M&amp;A戦略ナラティブレポート（Word）／投資枠算定モデル（Excel）</div>
+      </div>
+    </div>
+
+    <div class="flow-arrow">›</div>
+
+    <div class="cat">
+      <div class="head">
+        <div class="num">② SOURCING</div>
+        <div class="nm">ソーシング</div>
+        <div class="en">候補を網羅発掘しスコアで絞り込む</div>
+      </div>
+      <div class="body">
+        <div class="q">要件に合う候補はどこか／重複なく名寄せできるか／どれを優先するか</div>
+        <div class="mlbl">主なモジュール</div>
+        <ul>
+          <li>ロングリスト発掘（Web×gBizINFO）</li>
+          <li>ショートリスト化（発生確度×シナジー）</li>
+          <li>3段階ターゲット統合・名寄せ</li>
+        </ul>
+        <div class="out"><b>出力</b>｜ロングリスト／ショートリスト（4象限マップ付）／統合マスターリスト</div>
+      </div>
+    </div>
+
+    <div class="flow-arrow">›</div>
+
+    <div class="cat">
+      <div class="head">
+        <div class="num">③ DEAL ASSESSMENT</div>
+        <div class="nm">案件評価</div>
+        <div class="en">多面評価で投資判断材料を構造化</div>
+      </div>
+      <div class="body">
+        <div class="q">検討に値するか／適正な企業価値は／買い手タイプ別にGo・No-Goは</div>
+        <div class="mlbl">主なモジュール</div>
+        <ul>
+          <li>ディール評価オーケストレーター（4ステップ）</li>
+          <li>11評価モジュール並列（事業/市場/競争/財務/シナジー/リスク…）</li>
+          <li>バリュエーション／4シナリオProjection</li>
+        </ul>
+        <div class="out"><b>出力</b>｜統合Excelモデル／IC統合評価レポート（Word）／IC資料（PPTX）</div>
+      </div>
+    </div>
+
+    <div class="flow-arrow">›</div>
+
+    <div class="cat">
+      <div class="head">
+        <div class="num">④ DD・NEGOTIATION・DECISION</div>
+        <div class="nm">DD・交渉・意思決定</div>
+        <div class="en">DD設計〜SPA条件〜クロージング管理</div>
+      </div>
+      <div class="body">
+        <div class="q">DDスコープは／横断論点とリスクは／SPA条件・交渉ポジションは</div>
+        <div class="mlbl">主なモジュール（3層）</div>
+        <ul>
+          <li>DD準備（スコープ／QA・資料依頼シート）</li>
+          <li>DD統合分析（Findings統合／論点抽出）</li>
+          <li>意思決定・クロージング（取締役会起案／SPA）</li>
+        </ul>
+        <div class="out"><b>出力</b>｜DD Findings統合一覧／取締役会起案資料／SPA主要条件整理表</div>
+      </div>
+    </div>
+
+    <div class="flow-arrow">›</div>
+
+    <div class="cat">
+      <div class="head">
+        <div class="num">⑤ PMI</div>
+        <div class="nm">PMI</div>
+        <div class="en">買収後の統合を体系的に支援</div>
+      </div>
+      <div class="body">
+        <div class="q">ガバナンス層は／月次KPIは何を／100日プランの優先順位は</div>
+        <div class="mlbl">主なモジュール</div>
+        <ul>
+          <li>ガバナンス層定義</li>
+          <li>月次KPIモニタリング（業種別プリセット）</li>
+          <li>100日プラン生成／Earn-out横断ビュー</li>
+        </ul>
+        <div class="out"><b>出力</b>｜100日プラン（Excel）／月次KPI管理表／PMI計画書（Word）</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="strip">
+    <div class="box wide">
+      <div class="b-lbl">横断機能 ｜ 全カテゴリを下支え</div>
+      <div class="b-txt"><b>データ検証モジュール</b>：独立コンテキストで再取得・算式再計算・レンジチェック（作成者と監査人の分離）。<b>マルチエージェント討議</b>：業界／バイサイド／売り手視点の並列討議で仮説検証。</div>
+    </div>
+    <div class="box">
+      <div class="b-lbl">設計原則</div>
+      <div class="b-txt"><b>頭はメイン、手足はサブエージェント</b>。判断・洞察・統合はメインが担い、データ取得・並列分析・独立検証を委任。一貫性とスピードを両立。</div>
+    </div>
+    <div class="box">
+      <div class="b-lbl">従来との違い</div>
+      <div class="b-txt">工程間の判断を<b>自動継承</b>し組織に蓄積。属人化を排し<b>再現可能な組織知</b>へ。仲介・FAを代替せず、買い手<b>内側の検討</b>を支える。</div>
+    </div>
+  </div>
+
+  <div class="note">
+    ※ M&amp;A Architect は意思決定を自動化するものではなく、人間を主担当として判断材料の構造化と再現性を提供する。10論点はすべて人間が主担当（うちAI支援9論点、「推進検討体制」のみ対象外）。実装フレームワーク：M&amp;A戦略3層構造／目的6類型／成功の10論点／失敗3タイプ ほか。案件情報はNDAのもと顧客ごとに論理分離・AI学習に不使用。
+  </div>
+  <div class="footer">
+    <div>M&amp;A Architect ／ 買い手のM&amp;A機能を、設計する独自AIシステム（Invitation-only Beta・特許出願中）</div>
+    <div>© 2026 Design Management LLC　　1 / 2</div>
+  </div>
+
+</div>
+</body>
+</html>
